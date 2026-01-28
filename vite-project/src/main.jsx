@@ -9,7 +9,5 @@ import "swiper/css/autoplay";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
     <App />
-  </BrowserRouter>
 );

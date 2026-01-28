@@ -21,7 +21,7 @@ export default function Navbar() {
     { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Courses", path: "/courses" },
-    { name: "Training", path: "/training" },
+    { name: "Blog", path: "/blog" },
     { name: "Internship", path: "/internship" },
     { name: "Contact", path: "/contact" },
   ];
@@ -129,7 +129,7 @@ export default function Navbar() {
           >
             <Code2 size={28} className="text-blue-500" strokeWidth={2.2} />
             <span className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-500">
-              devique
+              Devique
             </span>
           </motion.div>
 
@@ -250,9 +250,6 @@ export default function Navbar() {
           </div>
         </motion.div>
       </nav>
-
-      {/* Navbar Spacer */}
-      <div className="h-16 sm:h-20" />
     </>
   );
 }
