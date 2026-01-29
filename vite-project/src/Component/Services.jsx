@@ -6,9 +6,9 @@ import {
   Globe,
   Laptop,
   Smartphone,
-  DollarSign,
   Settings,
   Wrench,
+  BadgeIndianRupee 
 } from "lucide-react";
 
 const services = [
@@ -37,7 +37,7 @@ const services = [
     color: "from-green-500 to-emerald-400",
   },
   {
-    icon: DollarSign,
+    icon: BadgeIndianRupee,
     title: "Billing & Accounting Software",
     desc:
       "Smart billing and accounting systems to manage finances efficiently.",

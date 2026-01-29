@@ -5,28 +5,28 @@ import { Star } from "lucide-react";
 const reviews = [
   {
     name: "Rahul Sharma",
-    role: "Full Stack Developer at TCS",
+    role: "Full Stack Developer",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     text:
       "The Full Stack Development course transformed my career. Hands-on projects and expert guidance helped me land my dream job!",
   },
   {
     name: "Priya Patel",
-    role: "Frontend Developer at Infosys",
+    role: "Frontend Developer ",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     text:
       "Amazing learning experience! The instructors are knowledgeable and very supportive.",
   },
   {
     name: "Amit Kumar",
-    role: "Python Developer at Wipro",
+    role: "Python Developer",
     image: "https://randomuser.me/api/portraits/men/65.jpg",
     text:
       "Best decision was joining the Python course. Industry-relevant curriculum and excellent placement support.",
   },
   {
     name: "Sneha Reddy",
-    role: "ML Engineer at Startup",
+    role: "ML Engineer",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
     text:
       "The Machine Learning course exceeded expectations. Real-world projects made all the difference.",

@@ -63,9 +63,7 @@ const Blog = () => {
     return matchesCategory && matchesSearch;
   });
 
-  // const featuredBlog = blogs.reduce((prev, current) => 
-  //   (prev.views > current.views) ? prev : current
-  // );
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -96,55 +94,6 @@ const Blog = () => {
           </div>
         </div>
       </div>
-
-      {/* Featured Blog Section */}
-      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative h-64 md:h-auto">
-              <img 
-                src={featuredBlog.image}
-                alt={featuredBlog.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800';
-                }}
-              />
-              <div className="absolute top-4 left-4">
-                <span className="px-4 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4" />
-                  Featured
-                </span>
-              </div>
-            </div>
-            <div className="p-8 flex flex-col justify-center">
-              <span className="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4 w-fit">
-                {featuredBlog.category}
-              </span>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                {featuredBlog.title}
-              </h2>
-              <p className="text-gray-600 mb-6 line-clamp-2">
-                {featuredBlog.description}
-              </p>
-              <div className="flex items-center gap-6 text-sm text-gray-500 mb-6">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  <span>{featuredBlog.readTime} min</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Eye className="w-4 h-4" />
-                  <span>{featuredBlog.views.toLocaleString()}</span>
-                </div>
-              </div>
-              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all flex items-center gap-2 w-fit">
-                Read Article
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
 
       {/* Category Filter */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -180,7 +129,7 @@ const Blog = () => {
               {/* Blog Image */}
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={blog.image}
+                  src={blog.image.data}
                   alt={blog.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   onError={(e) => {
@@ -222,9 +171,11 @@ const Blog = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                  {blog.title}
-                </h3>
+                <Link to={`/blog/${blog._id}`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    {blog.title}
+                  </h3>
+                </Link>
 
                 {/* Description */}
                 <p className="text-gray-600 text-sm mb-4 line-clamp-2">

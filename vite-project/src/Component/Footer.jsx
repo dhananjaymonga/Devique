@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -42,8 +43,11 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {["About", "Services", "Courses", "Training", "Blog", "Contact"].map(
               (item, i) => (
+
                 <li key={i} className="hover:text-white cursor-pointer">
-                  {item}
+                  <Link to={`/${item.toLowerCase()}`}>
+                    {item}
+                  </Link>
                 </li>
               )
             )}
@@ -63,7 +67,9 @@ export default function Footer() {
               "Training Programs"
             ].map((service, i) => (
               <li key={i} className="hover:text-white cursor-pointer">
+                <Link to="/services">     
                 {service}
+                </Link>
               </li>
             ))}
           </ul>
@@ -78,12 +84,9 @@ export default function Footer() {
               <Mail size={18} /> info@devique.com
             </li>
             <li className="flex gap-3 items-start">
-              <Phone size={18} /> +91 123 456 7890
+              <Phone size={18} /> +91 74003-77777
             </li>
-            <li className="flex gap-3 items-start">
-              <MapPin size={18} />
-              123 Tech Park, Bangalore, Karnataka 560001
-            </li>
+          
           </ul>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 export default function CTASection() {
   return (
     <motion.section
@@ -20,21 +20,24 @@ export default function CTASection() {
       </p>
 
       <div className="flex justify-center gap-6 flex-wrap">
+        <Link to="/contact">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 rounded-full bg-white text-black font-semibold"
-        >
+          className="px-8 py-3 rounded-full bg-white text-black font-semibold cursor-pointer"
+          >
           Get in Touch
         </motion.button>
-
+          </Link>
+    <Link to="/courses">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="px-8 py-3 rounded-full border border-white text-white font-semibold"
-        >
+          className="px-8 py-3 rounded-full border border-white text-white font-semibold cursor-pointer"
+          >
           Browse Courses
         </motion.button>
+          </Link>
       </div>
     </motion.section>
   );

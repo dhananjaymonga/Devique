@@ -5,7 +5,7 @@ import {
   Rocket, Code, Palette, Database, Globe, Smartphone, Clock,
   Heart, MessageCircle, DollarSign, BookOpen
 } from "lucide-react";
-
+import {Link} from "react-router-dom";
 const Internship = () => {
   const heroRef = useRef(null);
   const opportunitiesRef = useRef(null);
@@ -65,7 +65,7 @@ const Internship = () => {
       type: "development",
       location: "Remote",
       duration: "3-6 Months",
-      stipend: "$500/month",
+      stipend: "₹500/month",
       description: "Work on cutting-edge web applications using React, Vue, and modern JavaScript frameworks.",
       requirements: ["HTML/CSS/JavaScript", "React basics", "Git knowledge"],
       positions: 5,
@@ -79,7 +79,7 @@ const Internship = () => {
       type: "design",
       location: "Hybrid",
       duration: "3-6 Months",
-      stipend: "$450/month",
+      stipend: "₹450/month",
       description: "Create beautiful and intuitive user experiences. Work with Figma and collaborate with product teams.",
       requirements: ["Figma proficiency", "Design principles", "Portfolio"],
       positions: 3,
@@ -93,7 +93,7 @@ const Internship = () => {
       type: "development",
       location: "Remote",
       duration: "3-6 Months",
-      stipend: "$550/month",
+      stipend: "₹550/month",
       description: "Build mobile applications using React Native or Flutter. Contribute to real production apps.",
       requirements: ["JavaScript/TypeScript", "Mobile dev basics", "Problem solving"],
       positions: 4,
@@ -107,7 +107,7 @@ const Internship = () => {
       type: "data",
       location: "Remote",
       duration: "3-6 Months",
-      stipend: "$500/month",
+      stipend: "₹500/month",
       description: "Analyze data, create dashboards, and generate insights using Python, SQL, and Tableau.",
       requirements: ["Python/SQL", "Excel", "Data visualization basics"],
       positions: 3,
@@ -121,7 +121,7 @@ const Internship = () => {
       type: "marketing",
       location: "Hybrid",
       duration: "3-6 Months",
-      stipend: "$400/month",
+      stipend: "₹400/month",
       description: "Execute digital marketing campaigns, manage social media, and analyze campaign performance.",
       requirements: ["Social media basics", "Content writing", "Analytics tools"],
       positions: 6,
@@ -135,7 +135,7 @@ const Internship = () => {
       type: "business",
       location: "On-site",
       duration: "3-6 Months",
-      stipend: "$480/month",
+      stipend: "₹480/month",
       description: "Support business operations, analyze market trends, and prepare reports for leadership.",
       requirements: ["Excel", "Communication skills", "Business sense"],
       positions: 4,
@@ -177,7 +177,7 @@ const Internship = () => {
     {
       icon: <DollarSign size={32} />,
       title: "Competitive Stipend",
-      description: "$400-$550 monthly depending on role and performance"
+      description: "₹400-₹550 monthly depending on role and performance"
     },
     {
       icon: <Users size={32} />,
@@ -247,8 +247,8 @@ const Internship = () => {
       internshipRole: "Frontend Development Intern",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Priya",
       duration: "3 months",
-      salary: "₹8,50,000/year",
-      package: "CTC: ₹8.5 LPA | Bonus: ₹1 LPA | Benefits: Health, Relocation"
+      salary: "₹30,000/year",
+      package: "CTC: ₹2 LPA | Bonus: ₹0.1 LPA | Benefits: Health, Relocation"
     },
     {
       name: "Arjun Patel",
@@ -257,8 +257,8 @@ const Internship = () => {
       internshipRole: "Data Analytics Intern",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun",
       duration: "6 months",
-      salary: "₹7,50,000/year",
-      package: "CTC: ₹7.5 LPA | Bonus: ₹0.75 LPA | Benefits: Health, Remote Work"
+      salary: "₹50,000/year",
+      package: "CTC: ₹1.5 LPA | Bonus: ₹0.3 LPA | Benefits: Health, Remote Work"
     },
     {
       name: "Kavya Nair",
@@ -267,8 +267,8 @@ const Internship = () => {
       internshipRole: "UI/UX Design Intern",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kavya",
       duration: "4 months",
-      salary: "₹7,20,000/year",
-      package: "CTC: ₹7.2 LPA | Bonus: ₹0.8 LPA | Benefits: Health, Stock Options"
+      salary: "₹20,000/year",
+      package: "CTC: ₹1.2 LPA | Bonus: ₹0.7 LPA | Benefits: Health, Stock Options"
     },
     {
       name: "Rahul Verma",
@@ -278,7 +278,7 @@ const Internship = () => {
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Rahul",
       duration: "5 months",
       salary: "₹9,00,000/year",
-      package: "CTC: ₹9 LPA | Bonus: ₹1.2 LPA | Benefits: Health, Relocation, Stock"
+      package: "CTC: ₹ 1.9 LPA | Bonus: ₹1.2 LPA | Benefits: Health, Relocation, Stock"
     },
     {
       name: "Neha Singh",
@@ -288,7 +288,7 @@ const Internship = () => {
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Neha",
       duration: "5 months",
       salary: "₹6,80,000/year",
-      package: "CTC: ₹6.8 LPA | Bonus: ₹0.7 LPA | Benefits: Health, Gym"
+      package: "CTC: ₹1.8 LPA | Bonus: ₹0.3 LPA | Benefits: Health, Gym"
     },
     {
       name: "Aditya Kumar",
@@ -298,7 +298,7 @@ const Internship = () => {
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aditya",
       duration: "6 months",
       salary: "₹8,20,000/year",
-      package: "CTC: ₹8.2 LPA | Bonus: ₹0.9 LPA | Benefits: Health, ESOP"
+      package: "CTC: ₹1.2 LPA | Bonus: ₹0.3 LPA | Benefits: Health, ESOP"
     }
   ];
 
@@ -369,7 +369,7 @@ const Internship = () => {
 
       {/* HERO SECTION */}
       <div ref={heroRef} className="relative z-10 text-center py-24 px-6">
-        <div className={`transition-all duration-1000 ${isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className={`transition-all duration-1000 ₹{isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700">
             Internship Program
           </h1>
@@ -654,12 +654,12 @@ const Internship = () => {
             Join thousands of professionals who have advanced their careers through our internship program
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
+            <Link to="/contact">
             <button className="px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              Browse Positions
+             Join Now
             </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
-              Learn More
-            </button>
+            </Link>
+
           </div>
         </div>
       </div>
