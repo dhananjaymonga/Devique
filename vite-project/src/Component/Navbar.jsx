@@ -113,12 +113,12 @@ export default function Navbar() {
     <>
       <nav
         ref={navRef}
-        className="fixed top-0 left-0 w-full bg-white z-[999] border-b border-gray-100 shadow-md"
+        className="fixed top-0 left-0 w-full  backdrop-blur-md z-[999] border-b border-zinc-800/50"
         style={{
-          boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
+          boxShadow: "0 4px 24px rgba(0, 0, 0, 0.4)",
         }}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3.5">
           {/* Logo */}
           <motion.div
             ref={logoRef}
@@ -127,8 +127,8 @@ export default function Navbar() {
             onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer flex-shrink-0"
           >
-            <Code2 size={28} className="text-blue-500" strokeWidth={2.2} />
-            <span className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-500">
+            <Code2 size={26} className="text-amber-500" strokeWidth={2.2} />
+            <span className="text-lg sm:text-xl font-bold text-white">
               Devique
             </span>
           </motion.div>
@@ -140,36 +140,29 @@ export default function Navbar() {
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `relative text-sm font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
+                    `relative text-[15px] font-medium px-4 py-2 rounded-lg transition-all duration-300 ${
                       isActive
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                        ? "text-amber-400 bg-amber-500/10"
+                        : "text-zinc-300 hover:text-amber-400 hover:bg-zinc-800/50"
                     }`
                   }
                 >
                   {item.name}
-                  <span 
-                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 transition-all duration-500 scale-x-0"
-                    style={{
-                      transformOrigin: "center",
-                    }}
-                  />
                 </NavLink>
               </li>
             ))}
           </ul>
 
-          {/* Desktop Apply Button - Only on Desktop */}
-        <motion.button
-  ref={btnRef}
-  whileHover={{ scale: 1.08, boxShadow: "0 8px 20px rgba(59, 130, 246, 0.3)" }}
-  whileTap={{ scale: 0.95 }}
-  onClick={handleApplyNow}
-  className="block bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 lg:px-7 py-2.5 rounded-full text-sm font-semibold shadow-lg transition-all duration-300"
->
-  Apply Now
-</motion.button>
-
+          {/* Desktop Apply Button */}
+          <motion.button
+            ref={btnRef}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleApplyNow}
+            className="hidden lg:block bg-amber-500 hover:bg-amber-400 text-black px-6 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all duration-300"
+          >
+            Apply Now
+          </motion.button>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -177,7 +170,7 @@ export default function Navbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-zinc-800/50 transition-colors duration-300"
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -188,7 +181,7 @@ export default function Navbar() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <X size={24} className="text-gray-900" strokeWidth={2} />
+                  <X size={24} className="text-zinc-100" strokeWidth={2} />
                 </motion.div>
               ) : (
                 <motion.div
@@ -198,7 +191,7 @@ export default function Navbar() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Menu size={24} className="text-gray-900" strokeWidth={2} />
+                  <Menu size={24} className="text-zinc-100" strokeWidth={2} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -209,11 +202,11 @@ export default function Navbar() {
         <motion.div
           ref={mobileMenuRef}
           initial={{ height: 0, opacity: 0 }}
-          className="lg:hidden overflow-hidden border-t border-gray-100"
+          className="lg:hidden overflow-hidden border-t border-zinc-800/50"
         >
-          <div className="px-4 sm:px-6 py-4 bg-gradient-to-b from-white via-blue-50/30 to-white">
+          <div className="px-4 sm:px-6 py-4 bg-zinc-900/50 backdrop-blur-md">
             {/* Mobile Links */}
-            <ul className="flex flex-col gap-2 mb-4">
+            <ul className="flex flex-col gap-1.5 mb-4">
               {links.map((item, i) => (
                 <li
                   key={item.name}
@@ -223,10 +216,10 @@ export default function Navbar() {
                     to={item.path}
                     onClick={handleMobileLinkClick}
                     className={({ isActive }) =>
-                      `block text-sm font-medium px-4 py-2.5 rounded-lg transition-all duration-300 ${
+                      `block text-[15px] font-medium px-4 py-2.5 rounded-lg transition-all duration-300 ${
                         isActive
-                          ? "text-blue-600 bg-blue-100"
-                          : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                          ? "text-amber-400 bg-amber-500/10 border border-amber-500/20"
+                          : "text-zinc-300 hover:text-amber-400 hover:bg-zinc-800/50"
                       }`
                     }
                   >
@@ -237,16 +230,14 @@ export default function Navbar() {
             </ul>
 
             {/* Mobile Apply Button */}
-           <motion.button
-  ref={btnRef}
-  whileHover={{ scale: 1.08, boxShadow: "0 8px 20px rgba(59, 130, 246, 0.3)" }}
-  whileTap={{ scale: 0.95 }}
-  onClick={handleApplyNow}
-  className="block bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white px-6 lg:px-7 py-2.5 rounded-full text-sm font-semibold shadow-lg transition-all duration-300"
->
-  Apply Now
-</motion.button>
-
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={handleApplyNow}
+              className="w-full bg-amber-500 hover:bg-amber-400 text-black px-6 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all duration-300"
+            >
+              Apply Now
+            </motion.button>
           </div>
         </motion.div>
       </nav>

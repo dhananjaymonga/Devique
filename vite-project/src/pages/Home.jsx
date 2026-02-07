@@ -6,16 +6,17 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Star from "./Star";
-import Services from "./Services";
-import InternshipSection from "./Intership-overview";
-import Testimonials from "./Testimonials";
-import CTASection from "./CTA-Section"; 
+import Star from "../Component/Star";
+import Services from "../Component/Services";
+import InternshipSection from "../Component/Intership-overview";
+import Testimonials from "../Component/Testimonials";
+import CTASection from "../Component/CTA-Section"; 
+import TextType from "../animation/TextType";
+import CourseScrollStack from "../Component/Demo";
 
 export default function Hero() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
     gsap.from(".hero-title", {
       y: 40,
       opacity: 0,
@@ -66,7 +67,7 @@ export default function Hero() {
 
   return (
     <>    
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
       {/* Animated coding background - Layer 1 (Downward) */}
       <div className="absolute inset-0 overflow-hidden">
         {codeSnippets.map((snippet, i) => (
@@ -84,10 +85,10 @@ export default function Hero() {
             transition={{
               duration: 15,
               repeat: Infinity,
-              delay: i * 0.8,
+              delay: i * -0.8,
               ease: "linear"
             }}
-            className="absolute text-blue-300/50 font-mono text-sm md:text-base whitespace-nowrap font-semibold"
+            className="absolute text-zinc-400 font-mono text-sm md:text-base whitespace-nowrap font-semibold"
             style={{ 
               textShadow: "0 0 10px rgba(59, 130, 246, 0.4)"
             }}
@@ -114,10 +115,10 @@ export default function Hero() {
             transition={{
               duration: 18,
               repeat: Infinity,
-              delay: i * 1.2,
+              delay: i * -1.2,
               ease: "linear"
             }}
-            className="absolute text-cyan-300/45 font-mono text-xs md:text-sm whitespace-nowrap font-semibold"
+            className="absolute text-zinc-400 font-mono text-xs md:text-sm whitespace-nowrap font-semibold"
             style={{ 
               textShadow: "0 0 8px rgba(34, 211, 238, 0.3)"
             }}
@@ -144,10 +145,10 @@ export default function Hero() {
             transition={{
               duration: 20,
               repeat: Infinity,
-              delay: i * 1.5,
+              delay: i * -1.5,
               ease: "linear"
             }}
-            className="absolute text-blue-400/40 font-mono text-xs md:text-sm whitespace-nowrap font-semibold"
+            className="absolute text-zinc-400 font-mono text-xs md:text-sm whitespace-nowrap font-semibold"
             style={{ 
               textShadow: "0 0 8px rgba(59, 130, 246, 0.3)"
             }}
@@ -168,19 +169,32 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-xs tracking-widest text-blue-400 mb-4 font-mono"
+          className="text-xs tracking-widest text-amber-400 mb-4 font-mono"
         >
           WELCOME TO DEVIQUE
         </motion.p>
-
         <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
-          Innovative IT Solutions &{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            Tech Training
+          Innovative IT Solutions  &{" "}
+          <br />
+          <span className=" bg-gradient-to-r text-3xl md:text-5xl lg:text-5xl font-extrabold from-amber-400 to-amber-600 bg-clip-text text-transparent">
+            {/* Tech Training */}
+            <TextType 
+  text={["Tech Training", "Real software. Real impact.", "Engineering, not shortcuts."]}
+  typingSpeed={75}
+  pauseDuration={1500}
+  showCursor
+  cursorCharacter="|"
+  deletingSpeed={50}
+  variableSpeedEnabled={false}
+  variableSpeedMin={60}
+  variableSpeedMax={120}
+  cursorBlinkDuration={.5}
+/>
           </span>
         </h1>
+       
 
-        <p className="hero-sub mt-6 text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+ <p className="hero-sub mt-6 text-gray-300 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
           Transform your business with cutting-edge software solutions and
           empower your career with industry-leading training programs
         </p>
@@ -188,9 +202,9 @@ export default function Hero() {
         <div className="hero-btn mt-10 flex flex-col sm:flex-row gap-4 justify-center">
           <MotionLink
             to="/services"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(59,130,246,0.5)" }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(251,191,36,0.5)" }}
             whileTap={{ scale: 0.95 }}
-            className="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-3 rounded-full font-medium shadow-lg shadow-blue-500/30 transition-all"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-zinc-600 hover:from-amber-600 hover:to-zinc-700 text-white px-8 py-3 rounded-full font-medium shadow-lg shadow-amber-500/30 transition-all"
           >
             Our Services 
             <motion.span
@@ -205,28 +219,16 @@ export default function Hero() {
             to="/courses"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 border-2 border-blue-400 text-blue-400 hover:bg-blue-400/10 px-8 py-3 rounded-full font-medium backdrop-blur-sm transition-all"
+            className="inline-flex items-center gap-2 border-2 border-amber-400 text-amber-400 hover:bg-amber-400/10 px-8 py-3 rounded-full font-medium backdrop-blur-sm transition-all"
           >
             Explore Courses
           </MotionLink>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="absolute left-1/2 -translate-x-1/2 -bottom-16 w-6 h-10 rounded-full border-2 border-blue-400 flex items-start justify-center"
-        >
-          <motion.span 
-            className="w-1 h-2 bg-blue-400 rounded-full mt-2"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          />
-        </motion.div>
       </div>
     </section>
     <Star />
-    <Services/>
+    <CourseScrollStack/>
+    {/* <Services/> */}
     <InternshipSection/>
     <Testimonials/>
     <CTASection/>

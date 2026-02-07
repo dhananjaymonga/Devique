@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import ScrollStack , {ScrollStackItem} from "../animation/ScrollStack";
 import {
   Globe,
   Laptop,
@@ -81,9 +81,9 @@ const item = {
 
 const Services = () => {
   return (
-    <section className="py-24 bg-white">
+    <>
+    <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,69 +91,73 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm tracking-widest text-blue-500 uppercase">
+          <p className="text-sm tracking-widest text-amber-500 uppercase">
             What We Offer
           </p>
-          <h2 className="text-4xl font-bold mt-2">Our Services</h2>
+          <h2 className="text-4xl text-white font-bold mt-2">Our Services</h2>
           <p className="text-gray-500 mt-4 max-w-xl mx-auto">
             Comprehensive IT solutions tailored to your business needs
           </p>
         </motion.div>
 
+
         {/* Cards */}
-        <motion.div
+        {/* <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {services.map((service, i) => {
-            const Icon = service.icon;
-            return (
-              <motion.div
-                key={i}
-                variants={item}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="relative group rounded-2xl border border-gray-200 p-6 bg-white transition-all overflow-hidden"
-              >
-                {/* Gradient glow */}
-                <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br ${service.color} blur-2xl`}
-                />
+          
+        > */}
+          {
+          // services.map((service, i) => {
+          //   const Icon = service.icon;
+          //   return (
+          //     <motion.div
+          //       key={i}
+          //       variants={item}
+          //       whileHover={{ y: -10, scale: 1.02 }}
+          //       className="relative group rounded-2xl border border-gray-200 p-6 bg-white transition-all overflow-hidden"
+          //     >
+          //       {/* Gradient glow */}
+          //       <div
+          //         className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br ${service.color} blur-2xl`}
+          //       />
 
-                {/* Content */}
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div
-                    className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg`}
-                  >
-                    <Icon size={26} />
-                  </div>
+          //       {/* Content */}
+          //       <div className="relative z-10">
+          //         {/* Icon */}
+          //         <div
+          //           className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white shadow-lg`}
+          //         >
+          //           <Icon size={26} />
+          //         </div>
 
-                  <h3 className="text-lg font-semibold mt-5">
-                    {service.title}
-                  </h3>
+          //         <h3 className="text-lg font-semibold mt-5">
+          //           {service.title}
+          //         </h3>
 
-                  <p className="text-gray-500 mt-2 text-sm">
-                    {service.desc}
-                  </p>
+          //         <p className="text-gray-500 mt-2 text-sm">
+          //           {service.desc}
+          //         </p>
 
-                  <ul className="mt-4 space-y-2 text-sm text-gray-600">
-                    {service.points.map((point, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <span
-                          className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`}
-                        />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+          //         <ul className="mt-4 space-y-2 text-sm text-gray-600">
+          //           {service.points.map((point, idx) => (
+          //             <li key={idx} className="flex items-center gap-2">
+          //               <span
+          //                 className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`}
+          //               />
+          //               {point}
+          //             </li>
+          //           ))}
+          //         </ul>
+          //       </div>
+          //     </motion.div>
+          //   );
+          // })
+          }
+        {/* </motion.div> */}
 
         {/* Button */}
         <motion.div
@@ -170,7 +174,23 @@ const Services = () => {
 </Link>
         </motion.div>
       </div>
-    </section>
+      </section>
+       <ScrollStack>
+  <ScrollStackItem>
+    <h2>Card 1</h2>
+    <p>This is the first card in the stack</p>
+  </ScrollStackItem>
+  <ScrollStackItem>
+    <h2>Card 2</h2>
+    <p>This is the second card in the stack</p>
+  </ScrollStackItem>
+  <ScrollStackItem>
+    <h2>Card 3</h2>
+    <p>This is the third card in the stack</p>
+  </ScrollStackItem>
+</ScrollStack>
+    </>
+    
   );
 };
 

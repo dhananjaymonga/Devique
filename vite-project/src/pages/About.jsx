@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
-import OurJourney from "./OurJourney";
+import OurJourney from "../Component/OurJourney.jsx";
 
 const About = () => {
   const heroRef = useRef(null);
